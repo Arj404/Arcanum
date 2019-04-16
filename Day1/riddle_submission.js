@@ -1,7 +1,12 @@
 var butt = document.querySelector("#button1");
 var finished = false;
 var qno = 2;
-var exist;
+var exist = false;
+var mydiv = document.querySelector(".search-box");
+var atag = document.createElement("a");
+
+atag.setAttribute("href", "./ip.html");
+atag.innerHTML = "proceed to question 3";
 butt.onclick = function() {
     var submission = document
         .querySelector("#answer_submission")
@@ -36,6 +41,23 @@ butt.onclick = function() {
                     var itemsProcessed = 0;
                     db = firebase.database().ref("responses");
                     var flag = 0;
+                    // db.orderByChild("questionNumber")
+                    //     .equalTo(2)
+                    //     .once("value", function(e) {
+                    //         if (e.exists()) {
+                    //             alert("no resubmissions");
+                    //         }
+                    //         console.log("val" + e.val());
+                    //         console.log(e.key);
+                    //         // if (e.key) {
+                    //         //     console.log("no resubmissions");
+                    //         // } else {
+                    //         //     db.push(data);
+                    //         // }
+                    //         if (e.val() === null) {
+                    //             db.push(data);
+                    //         }
+                    //     });
 
                     db.once("value").then(async snapshot => {
                         await snapshot.forEach(element => {
@@ -47,11 +69,6 @@ butt.onclick = function() {
                                     console.log("caught");
                                     exist = true;
                                     flag = 1;
-                                } else {
-                                    if (flag !== 1) {
-                                        console.log("here2");
-                                        exist = false;
-                                    }
                                 }
                             }
 
@@ -62,13 +79,16 @@ butt.onclick = function() {
                         console.log(exist);
                         if (exist === true) {
                             alert("sorry no resubmissions");
+                            mydiv.appendChild(atag);
                         } else if (exist === false) {
                             db.push(data);
                             console.log("here");
+                            mydiv.appendChild(atag);
                         }
                         if (questions.length === 0) {
                             console.log("lol");
                             db.push(data);
+                            mydiv.appendChild(atag);
                         }
                     });
                 } else {

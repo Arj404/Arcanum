@@ -1,3 +1,9 @@
+var mydiv = document.querySelector(".wrapper");
+var atag = document.createElement("a");
+
+atag.setAttribute("href", "../Day1/story_before_q1.html");
+atag.innerHTML = "proceed to question 1..";
+
 document.querySelector("#login").addEventListener("click", function(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -9,15 +15,28 @@ document.querySelector("#login").addEventListener("click", function(e) {
     );
     var auth = firebase.auth();
     var currentUser = auth.currentUser;
+
     firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
+        .then(alert("logged in, proceed to Day 1"))
         .catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
             // ...
         });
+    firebase.auth().onAuthStateChanged(function(user) {
+        window.user = user;
+        if (user) {
+            mydiv.appendChild(atag);
+        } else {
+        }
+        // Step 1:
+        //  If no user, sign in anonymously with firebase.auth().signInAnonymously()
+        //  If there is a user, log out out user details for debugging purposes.
+    });
+
     // Step 2
     //  Get a credential with firebase.auth.emailAuthProvider.credential(emailInput.value, passwordInput.value)
     //  If there is no current user, log in with auth.signInWithCredential(credential)

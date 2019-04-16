@@ -16,11 +16,10 @@ document.querySelector("#register").addEventListener("click", function(e) {
             user = firebase.auth().currentUser;
             // here you can use either the returned user object or       firebase.auth().currentUser. I will use the returned user object
             if (user) {
-                console.log("user" + user);
                 user.updateProfile({
                     displayName: name // some displayName,
                 }).then(
-                    console.log("done") // perform any other operation
+                    alert("Succesful, go to login now.") // perform any other operation
                 );
             }
         })
@@ -30,5 +29,6 @@ document.querySelector("#register").addEventListener("click", function(e) {
             var errorMessage = error.message;
             // ...
             console.log(error);
+            alert(errorMessage);
         });
 });

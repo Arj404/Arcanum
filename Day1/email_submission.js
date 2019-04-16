@@ -2,6 +2,11 @@ var butt = document.querySelector("#button1");
 var finished = false;
 var qno = 1;
 var exist;
+var mydiv = document.querySelector(".search-box");
+var atag = document.createElement("a");
+
+atag.setAttribute("href", "./riddle_q2.html");
+atag.innerHTML = "proceed to question 2..";
 butt.onclick = function() {
     var submission = document
         .querySelector("#answer_submission")
@@ -62,13 +67,16 @@ butt.onclick = function() {
                         console.log(exist);
                         if (exist === true) {
                             alert("sorry no resubmissions");
+                            mydiv.appendChild(atag);
                         } else if (exist === false) {
                             db.push(data);
                             console.log("here");
+                            mydiv.appendChild(atag);
                         }
                         if (questions.length === 0) {
                             console.log("lol");
                             db.push(data);
+                            mydiv.appendChild(atag);
                         }
                     });
                 } else {
