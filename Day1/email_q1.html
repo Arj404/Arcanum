@@ -103,14 +103,19 @@
             <div class="overlay"></div>
             <header class="header">
                 <div class="search-box">
-                    <input placeholder="Enter the Unencrypted mail id" />
+                    <input
+                        id="answer_submission"
+                        placeholder="Enter your discovery"
+                    />
+                    <button id="button1">Submit</button>
                 </div>
                 <h1 class="page-title">
                     <a class="sidebar-toggle-btn trigger-toggle-sidebar"
                         ><span class="line"></span><span class="line"></span
                         ><span class="line"></span
                         ><span class="line line-angle1"></span
-                        ><span class="line line-angle2"></span></a>ARCANUM<a
+                        ><span class="line line-angle2"></span></a
+                    >ARCANUM<a
                         ><span
                             class="icon glyphicon glyphicon-chevron-down"
                         ></span
@@ -136,8 +141,8 @@
                             <div class="col col-2">
                                 <div class="subject">
                                     Some Subject(you are in trouble)
-                                    <span class="teaser"
-                                       Welcome to ARCANUM
+                                    <span class="teaser">
+                                        Welcome to ARCANUM
                                     </span>
                                 </div>
                                 <div class="date">11:49 am</div>
@@ -436,10 +441,11 @@
                 <p>
                     From
 
-                    <a href="#" onclick="document.getElementById('id01').style.display='block'">
-                        
-                            #####
-                  
+                    <a
+                        href="#"
+                        onclick="document.getElementById('id01').style.display='block'"
+                    >
+                        #####
                     </a>
                     to <a href="#">You</a>, started on
                     <a href="#">March 2, 2014</a> at 2:14 pm est.
@@ -454,7 +460,7 @@
                             class="w3-button w3-display-topright"
                             >&times;</span
                         >
-                        <p>stacy2301@gmail.com</p>
+                        <p>skccldazglgenbk@gdciy.cfo</p>
                     </div>
                 </div>
             </div>
@@ -538,10 +544,36 @@
                 </div>
             </div>
         </div>
+
         <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
         <script src="../registration/firebaseconfig.js"></script>
         <script src="../registration/firebaseVerify.js"></script>
+
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="email_q1.js"></script>
+        <script>
+            submission = document.querySelector("#answer_submission").value.toLowerCase();
+            console.log(submission);
+            var butt = document.querySelector("#button1");
+            butt.onclick = function() {
+                console.log("hi");
+                ansDb = firebase.database().ref("answers");
+                correctAns = ansDb.on("value", function(snapshot){
+                    console.log(snapshot)
+                })
+                if (user) {
+                    console.log("hi");
+                    // var date = newdate();
+                    var data = {
+                        uid: user.uid,
+                        time: new Date().getTime(),
+                        status: true,
+                        email: user.email,
+                        questionNumber: 1
+                    };
+
+                    db = firebase.database().ref("responses");
+                    db.push(data);
+        </script>
     </body>
 </html>
