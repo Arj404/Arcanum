@@ -1,6 +1,6 @@
 var butt = document.querySelector("#button1");
 var finished = false;
-var qno = 1;
+var qno = 3;
 var exist;
 butt.onclick = function() {
     var submission = document

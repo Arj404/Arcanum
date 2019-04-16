@@ -103,7 +103,8 @@
             <div class="overlay"></div>
             <header class="header">
                 <div class="search-box">
-                    <input placeholder="Enter the murder weapon(two words)..." />
+                    <input id="answer_submission" placeholder="Enter the murder weapon(two words)..." />
+                    <button id="button1">Submit</button>
                 </div>
                 <h1 class="page-title">
                     <a class="sidebar-toggle-btn trigger-toggle-sidebar"
@@ -529,7 +530,11 @@
                 </div>
             </div>
         </div>
+        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+        <script src="../registration/firebaseconfig.js"></script>
+        <script src="../registration/firebaseVerify.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="riddle_q2.js"></script>
+        <script src="riddle_submission.js"></script>
     </body>
 </html>
