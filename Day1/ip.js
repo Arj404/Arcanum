@@ -4,6 +4,7 @@ var qno = 3;
 var exist;
 var mydiv = document.querySelector("#file");
 var atag = document.createElement("a");
+var password = "hi";
 
 atag.setAttribute("href", "../finish_day1.html");
 atag.innerHTML = "proceed to finish..";
@@ -25,7 +26,9 @@ butt.onclick = function() {
                 // var date = newdate();
                 // console.log("ubmission" + submission);
                 // console.log("correct ans =" + correctAns);
-                if (submission === correctAns) {
+                var decrypted = CryptoJS.AES.decrypt(correctAns, password);
+
+                if (submission === decrypted.toString(CryptoJS.enc.Utf8)) {
                     alert("Correct");
                     var data = {
                         uid: user.uid,

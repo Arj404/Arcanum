@@ -4,7 +4,7 @@ var qno = 1;
 var exist;
 var mydiv = document.querySelector(".search-box");
 var atag = document.createElement("a");
-
+var password = "hi";
 atag.setAttribute("href", "./riddle_q2.html");
 atag.innerHTML = "proceed to question 2..";
 butt.onclick = function() {
@@ -17,7 +17,9 @@ butt.onclick = function() {
     var correctAns = "hello";
     ansDb.on("value", function(snapshot) {
         correctAns = snapshot.val()[qno];
-        console.log(correctAns);
+        // console.log(correctAns);
+        var decrypted = CryptoJS.AES.decrypt(correctAns, password);
+        // console.log();
         finished = true;
         if (finished) {
             if (user) {
@@ -25,7 +27,7 @@ butt.onclick = function() {
                 // var date = newdate();
                 // console.log("ubmission" + submission);
                 // console.log("correct ans =" + correctAns);
-                if (submission === correctAns) {
+                if (submission === decrypted.toString(CryptoJS.enc.Utf8)) {
                     alert("Correct");
                     var data = {
                         uid: user.uid,
