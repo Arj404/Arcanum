@@ -6,6 +6,7 @@ var mydiv = document.querySelector(".search-box");
 var atag = document.createElement("a");
 var password = "hi";
 atag.setAttribute("href", "./ip.html");
+atag.setAttribute("style", "margin-right: 100px;");
 atag.innerHTML = "proceed to question 3";
 butt.onclick = function() {
     var submission = document
@@ -81,15 +82,18 @@ butt.onclick = function() {
                         if (exist === true) {
                             alert("sorry no resubmissions");
                             mydiv.appendChild(atag);
+                            butt.setAttribute("style", "display: none");
                         } else if (exist === false) {
                             db.push(data);
                             console.log("here");
                             mydiv.appendChild(atag);
+                            butt.setAttribute("style", "display: none");
                         }
                         if (questions.length === 0) {
                             console.log("lol");
                             db.push(data);
                             mydiv.appendChild(atag);
+                            butt.setAttribute("style", "display: none");
                         }
                     });
                 } else {
