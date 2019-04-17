@@ -1,8 +1,8 @@
-var mydiv = document.querySelector(".wrapper");
+var mydiv = document.querySelector("#ins-button");
 var atag = document.createElement("a");
 
-atag.setAttribute("href", "../Day1/story_before_q1.html");
-atag.innerHTML = "proceed to question 1..";
+atag.setAttribute("href", "../instruction.html");
+atag.innerHTML = "<button id=\"next-button\" class=\"fadeIn sixth\">proceed to instructions..</button><br>";
 
 document.querySelector("#login").addEventListener("click", function(e) {
     e.preventDefault();
@@ -19,7 +19,7 @@ document.querySelector("#login").addEventListener("click", function(e) {
     firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
-        .then(alert("logged in, proceed to Day 1"))
+        .then(alert("logged in, proceed to instructions"))
         .catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;

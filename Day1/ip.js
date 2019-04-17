@@ -6,7 +6,7 @@ var mydiv = document.querySelector("#file");
 var atag = document.createElement("a");
 
 atag.setAttribute("href", "../finish_day1.html");
-atag.innerHTML = "proceed to finish..";
+atag.innerHTML = "proceed to finish..<br><br>";
 butt.onclick = function() {
     var submission = document
         .querySelector("#answer_submission")

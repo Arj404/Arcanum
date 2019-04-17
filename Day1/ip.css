@@ -47,9 +47,7 @@ button {
     background-color: black;
     border-radius: 5px 5px 5px 5px;
 }
-#file {
-    padding: 3vw;
-}
+
 #answer_submission{
     font-size: 2vh;
     margin:auto;
@@ -59,4 +57,17 @@ button {
     padding: 10px;
     max-width: 30%;
     display: flex;
+}
+#sign-out{
+    position: absolute;
+    font-size: 2vh;
+    height: 35px;
+    top: 10px;
+    right: 10px;
+    border-radius: 5px 5px 5px 5px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    
 }
