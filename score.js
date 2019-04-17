@@ -13,9 +13,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         var flag = 0;
 
         db.once("value", res => {
-            console.log(res.key);
-            console.log(res.val());
-            console.log(res.val().questionNumber);
+            // console.log(res.key);
+            // console.log(res.val());
+            // console.log(res.val().questionNumber);
             var score = 0;
             // console.log(res.val().uid, question);
             res.forEach(element => {
@@ -52,9 +52,11 @@ firebase.auth().onAuthStateChanged(function(user) {
                     }
                 }
             });
+            console.log(user.displayName);
             dataScore = {
                 score: score,
-                uid: user.uid
+                uid: user.uid,
+                name: user.displayName
             };
             ref = firebase.database().ref("scores");
             // ref.once("value", function(snap) {
