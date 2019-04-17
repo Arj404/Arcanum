@@ -6,6 +6,8 @@ var mydiv = document.querySelector(".search-box");
 var atag = document.createElement("a");
 var password = "hi";
 atag.setAttribute("href", "./riddle_q2.html");
+atag.setAttribute("style", "margin-right: 100px;");
+
 atag.innerHTML = "proceed to question 2..";
 butt.onclick = function() {
     var submission = document
@@ -23,7 +25,9 @@ butt.onclick = function() {
         finished = true;
         if (finished) {
             if (user) {
-                console.log("hi");
+                console.log(
+                    user.displayName + "signed in. Tujhse nahi hoga, TWSS"
+                );
                 // var date = newdate();
                 // console.log("ubmission" + submission);
                 // console.log("correct ans =" + correctAns);
@@ -69,15 +73,18 @@ butt.onclick = function() {
                         if (exist === true) {
                             alert("sorry no resubmissions");
                             mydiv.appendChild(atag);
+                            butt.setAttribute("style", "display: none");
                         } else if (exist === false) {
                             db.push(data);
                             console.log("here");
                             mydiv.appendChild(atag);
+                            butt.setAttribute("style", "display: none");
                         }
                         if (questions.length === 0) {
                             console.log("lol");
                             db.push(data);
                             mydiv.appendChild(atag);
+                            butt.setAttribute("style", "display: none");
                         }
                     });
                 } else {
