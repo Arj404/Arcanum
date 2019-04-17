@@ -326,7 +326,7 @@ a:hover {
 
 #main .header .search-box input {
     position: absolute;
-    top: 30px;
+    top: 50px;
     right: 0;
     bottom: 0;
     width: 100%;
@@ -835,4 +835,17 @@ a:hover {
     visibility: visible\9;
     /* Target only IE7 and IE8 with this hack */
     opacity: 0.99;
+}
+#button1{
+    position: absolute;
+    text-indent: 15px;
+    height: 40px;
+    top: 0px;
+    right: 0;
+    outline: none;
+    color: #999;
+    background: transparent;
+    border: 2px solid #efefef;
+    border-radius: 5px;
+    padding-right: 20px;
 }
