@@ -68,7 +68,7 @@ butt.onclick = function() {
                                 questions.push(usr.questionNumber);
                                 // console.log(usr.questionNumber);
                                 if (usr.questionNumber === qno) {
-                                    console.log("caught");
+                                    console.log("Zyaada smart mat ban");
                                     exist = true;
                                     flag = 1;
                                 }
