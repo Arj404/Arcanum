@@ -64,7 +64,7 @@ butt.onclick = function() {
                             usr = element.val();
                             if (usr.uid === user.uid) {
                                 questions.push(usr.questionNumber);
-                                console.log(usr.questionNumber);
+                                // console.log(usr.questionNumber);
                                 if (usr.questionNumber === qno) {
                                     console.log("caught");
                                     exist = true;
