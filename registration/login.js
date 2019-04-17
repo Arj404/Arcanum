@@ -15,7 +15,7 @@ document.querySelector("#login").addEventListener("click", function(e) {
     );
     var auth = firebase.auth();
     var currentUser = auth.currentUser;
-
+    var errorCode = 1;
     firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
@@ -25,11 +25,17 @@ document.querySelector("#login").addEventListener("click", function(e) {
             var errorCode = error.code;
             var errorMessage = error.message;
             // ...
+            alert(errorMessage);
+        })
+        .then(res => {
+            console.log(res);
+            if (res) {
+                mydiv.appendChild(atag);
+            }
         });
     firebase.auth().onAuthStateChanged(function(user) {
         window.user = user;
         if (user) {
-            mydiv.appendChild(atag);
         } else {
         }
         // Step 1:
