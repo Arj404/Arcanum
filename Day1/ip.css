@@ -37,8 +37,8 @@ a:hover {
     text-decoration: none;
 }
 button {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
     max-width: 30%;
     display: flex;
     margin: auto;
@@ -49,4 +49,14 @@ button {
 }
 #file {
     padding: 3vw;
+}
+#answer_submission{
+    font-size: 2vh;
+    margin:auto;
+    align-self: center;
+    position: relative;
+    border-radius: 5px 5px 5px 5px;
+    padding: 10px;
+    max-width: 30%;
+    display: flex;
 }
