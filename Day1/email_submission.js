@@ -31,9 +31,8 @@ butt.onclick = function() {
                         uid: user.uid,
                         time: new Date().getTime(),
                         status: true,
-                        email: user.email,
-                        questionNumber: qno,
-                        submission: submission
+                        name: user.displayName,
+                        questionNumber: qno
                     };
                     var ok = 0;
                     var questions = [];
