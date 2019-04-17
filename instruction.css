@@ -75,7 +75,7 @@ h2.active {
 
 /* FORM TYPOGRAPHY*/
 
-#button{
+#button, #sign-out{
     background-color: #1F1C18;
     border: none;
     color: white;
@@ -97,13 +97,13 @@ h2.active {
     transition: all 0.3s ease-in-out;
 }
 
-#button:hover {
+#button:hover ,#sign-out:hover{
     background-color: #8E0E00;
     -webkit-box-shadow: 0 12px 40px 1px #8E0E00;
     box-shadow: 0 12px 40px 1px #8E0E00;
 }
 
-#button:active {
+#button:active ,#sign-out:active{
     -moz-transform: scale(0.95);
     -webkit-transform: scale(0.95);
     -o-transform: scale(0.95);
