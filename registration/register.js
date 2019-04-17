@@ -14,23 +14,7 @@ document.querySelector("#register").addEventListener("click", function(e) {
     firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
-        .then(() => {
-            user = firebase.auth().currentUser;
-            // here you can use either the returned user object or       firebase.auth().currentUser. I will use the returned user object
-            if (user) {
-                data = {
-                    displayName: name,
-                    rollNumber: rollno,
-                    uid: user.uid
-                };
-                dbUsers.push(data);
-                user.updateProfile({
-                    displayName: name
-                }).then(
-                    alert("Succesful, go to login now.") // perform any other operation
-                );
-            }
-        })
+
         .catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
@@ -38,5 +22,24 @@ document.querySelector("#register").addEventListener("click", function(e) {
             // ...
             console.log(error);
             alert(errorMessage);
+        })
+        .then(res => {
+            if (res) {
+                user = firebase.auth().currentUser;
+                // here you can use either the returned user object or       firebase.auth().currentUser. I will use the returned user object
+                if (user) {
+                    data = {
+                        displayName: name,
+                        rollNumber: rollno,
+                        uid: user.uid
+                    };
+                    dbUsers.push(data);
+                    user.updateProfile({
+                        displayName: name
+                    }).then(
+                        alert("Succesful, go to login now.") // perform any other operation
+                    );
+                }
+            }
         });
 });
