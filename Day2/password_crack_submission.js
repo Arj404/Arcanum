@@ -9,7 +9,7 @@ atag.setAttribute("href", "./time_q.html");
 atag.setAttribute("class", "line");
 atag.setAttribute("style", "margin-right: 100px;");
 
-atag.innerHTML = "proceed to question 2..";
+atag.innerHTML = "proceed to question 2..<br><br><br>";
 butt.onclick = function() {
     var submission = document.querySelector("#response").value.toLowerCase();
 
