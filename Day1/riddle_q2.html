@@ -110,7 +110,11 @@
                     /> -->
                     <button id="sign-out">Sign Out</button>
                     <!-- <button id="button1">Submit</button> -->
-                    <a href="./ip.html" ><button id="button2" onClick="./ip.html">Next</button></a>
+                    <button id="button2">Next</button>
+                    <script>document.querySelector("#button2").addEventListener("click", function() {
+                            window.location.assign("riddle_q2.html");
+                            });
+                    </script>
                 </div>
                 <h1 class="page-title">
                     <a class="sidebar-toggle-btn trigger-toggle-sidebar"

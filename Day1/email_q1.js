@@ -1150,7 +1150,5 @@ jQuery(document).ready(function($) {
     };
     $.fn.nanoScroller.Constructor = NanoScroll;
 })(jQuery, window, document);
-document.querySelector("#button2").addEventListener("click", function(e) {
-    window.location.assign("../index.html")
-});
+
 //# sourceMappingURL=jquery.nanoscroller.js.map
