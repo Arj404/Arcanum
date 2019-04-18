@@ -52,25 +52,28 @@ butt.onclick = function() {
                         .equalTo(user.uid)
                         .once("value")
                         .then(async snapshot => {
-                            function lol(snapshot) {
-                                usr = snapshot.val()[user.uid];
-                            }
-                            await lol(snapshot);
-                            console.log(usr.questionNumber);
-
-                            questions.push(usr.questionNumber);
-                            // console.log(usr.questionNumber);
-                            if (usr.questionNumber === qno) {
-                                console.log("caught");
-                                exist = true;
-                                flag = 1;
+                            if (snapshot.val() === null) {
+                                exist === false;
                             } else {
-                                if (flag !== 1) {
-                                    console.log("here2");
-                                    exist = false;
+                                function lol(snapshot) {
+                                    usr = snapshot.val()[user.uid];
+                                }
+                                await lol(snapshot);
+                                console.log(usr.questionNumber);
+
+                                questions.push(usr.questionNumber);
+                                // console.log(usr.questionNumber);
+                                if (usr.questionNumber === qno) {
+                                    console.log("caught");
+                                    exist = true;
+                                    flag = 1;
+                                } else {
+                                    if (flag !== 1) {
+                                        console.log("here2");
+                                        exist = false;
+                                    }
                                 }
                             }
-
                             // console.log(element.val().uid);
                             // console.log(element.val().questionNumber);
                             // console.log(element.val().status);
