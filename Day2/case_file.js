@@ -6,11 +6,11 @@ var exist;
 var mydiv = document.querySelector(".search-box");
 var atag = document.createElement("a");
 var password = "hi";
-atag.setAttribute("href", "./finish_day2.html");
+atag.setAttribute("href", "../finish_day2.html");
 atag.setAttribute("class", "line");
 atag.setAttribute("style", "margin-right: 100px;");
 
-atag.innerHTML = "proceed to question 3..<br><br>";
+atag.innerHTML = "proceed to Score..<br><br>";
 butt.onclick = function() {
     var submission = document
         .querySelector("#answer_submission")
