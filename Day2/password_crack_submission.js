@@ -40,55 +40,58 @@ butt.onclick = function() {
                         name: user.displayName,
                         questionNumber: qno
                     };
-                    console.log(data);
+                    // console.log(data);
                     var ok = 0;
                     var questions = [];
                     var usr;
 
-                    db = firebase.database().ref("Day2/" + user.uid);
+                    db = firebase.database().ref("Day2/");
                     var flag = 0;
                     var usr;
-                    db.once("value").then(async snapshot => {
-                        function lol(snapshot) {
-                            usr = snapshot.val();
-                        }
-                        await lol(snapshot);
-                        // console.log(usr.questionNumber);
-
-                        questions.push(usr.questionNumber);
-                        // console.log(usr.questionNumber);
-                        if (usr.questionNumber === qno) {
-                            console.log("caught");
-                            exist = true;
-                            flag = 1;
-                        } else {
-                            if (flag !== 1) {
-                                console.log("here2");
-                                exist = false;
+                    db.orderByKey()
+                        .equalTo(user.uid)
+                        .once("value")
+                        .then(async snapshot => {
+                            function lol(snapshot) {
+                                usr = snapshot.val()[user.uid];
                             }
-                        }
+                            await lol(snapshot);
+                            console.log(usr.questionNumber);
 
-                        // console.log(element.val().uid);
-                        // console.log(element.val().questionNumber);
-                        // console.log(element.val().status);
-                        console.log(exist);
-                        if (exist === true) {
-                            alert("sorry no resubmissions");
-                            mydiv.appendChild(atag);
-                            butt.setAttribute("style", "display: none");
-                        } else if (exist === false) {
-                            db.set(data);
-                            console.log("here");
-                            mydiv.appendChild(atag);
-                            butt.setAttribute("style", "display: none");
-                        }
-                        if (questions.length === 0) {
-                            console.log("lol");
-                            db.set(data);
-                            mydiv.appendChild(atag);
-                            butt.setAttribute("style", "display: none");
-                        }
-                    });
+                            questions.push(usr.questionNumber);
+                            // console.log(usr.questionNumber);
+                            if (usr.questionNumber === qno) {
+                                console.log("caught");
+                                exist = true;
+                                flag = 1;
+                            } else {
+                                if (flag !== 1) {
+                                    console.log("here2");
+                                    exist = false;
+                                }
+                            }
+
+                            // console.log(element.val().uid);
+                            // console.log(element.val().questionNumber);
+                            // console.log(element.val().status);
+                            console.log(exist);
+                            if (exist === true) {
+                                alert("sorry no resubmissions");
+                                mydiv.appendChild(atag);
+                                butt.setAttribute("style", "display: none");
+                            } else if (exist === false) {
+                                db.child(user.uid).set(data);
+                                console.log("here");
+                                mydiv.appendChild(atag);
+                                butt.setAttribute("style", "display: none");
+                            }
+                            if (questions.length === 0) {
+                                console.log("lol");
+                                db.child(user.uid).set(data);
+                                mydiv.appendChild(atag);
+                                butt.setAttribute("style", "display: none");
+                            }
+                        });
                 } else {
                     alert("Wrong answer");
                 }
