@@ -20,6 +20,7 @@ butt.onclick = function() {
     ansDb.on("value", function(snapshot) {
         correctAns = snapshot.val()[qno];
         // console.log(correctAns);
+        var encrypted = CryptoJS.AES.encrypt(submission, password);
         var decrypted = CryptoJS.AES.decrypt(correctAns, password);
         // console.log();
         finished = true;
@@ -30,11 +31,12 @@ butt.onclick = function() {
                         " Abhi bhi trying, didnt you hear what she said, tujhse na hoga"
                 );
                 // var date = newdate();
-                // console.log("ubmission" + submission);
+                // console.log("ubmission" + encrypted.toString());
                 // console.log("correct ans =" + correctAns);
-                if (submission === decrypted.toString(CryptoJS.enc.Utf8)) {
+                // console.log();
+                // console.log(CryptoJS.AES.compare(encrypted, correctAns));
+                if (decrypted.toString(CryptoJS.enc.Utf8) === submission) {
                     alert("Correct");
-
                     var data = {
                         time: new Date().getTime(),
                         status: true,
