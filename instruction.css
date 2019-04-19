@@ -13,7 +13,8 @@ body {
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-a,a:hover{
+a,
+a:hover {
     color: white;
     display: inline-block;
     text-decoration: none;
@@ -75,7 +76,8 @@ h2.active {
 
 /* FORM TYPOGRAPHY*/
 
-#button, #sign-out{
+#button,
+#sign-out {
     background-color: #1F1C18;
     border: none;
     color: white;
@@ -97,13 +99,15 @@ h2.active {
     transition: all 0.3s ease-in-out;
 }
 
-#button:hover ,#sign-out:hover{
+#button:hover,
+#sign-out:hover {
     background-color: #8E0E00;
     -webkit-box-shadow: 0 12px 40px 1px #8E0E00;
     box-shadow: 0 12px 40px 1px #8E0E00;
 }
 
-#button:active ,#sign-out:active{
+#button:active,
+#sign-out:active {
     -moz-transform: scale(0.95);
     -webkit-transform: scale(0.95);
     -o-transform: scale(0.95);
