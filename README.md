@@ -1,3 +1,3 @@
-# Arcanum_final
+# Arcanum
 
-https://arjavjain59998.github.io/Arcanum_final/
+https://arjavjain59998.github.io/Arcanum/
